@@ -1,0 +1,72 @@
+<!-- home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <div class="container col-xl-6">
+        <h1>Welcome to the Blog Web APP</h1>
+
+        <!-- Post creation form -->
+        <h4>Create a New Post</h4>
+        <form action="/create" method="POST">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Create Post</button>
+        </form>
+        <!-- Display existing posts -->
+
+
+        <!-- Updated home.ejs -->
+        <div class="container viewposts">
+            <h2>Existing Posts</h2>
+            <div class="row">
+                <% posts.forEach(post => { %>
+                    <div class="col-md-6 ">
+                        <div class="card mb-2">
+                            <div class="card-body" style="max-height: 150px; overflow-y: auto;">
+                                <h5 class="card-title titbold">
+                                    <%= post.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= post.content %>
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <!-- Add link to edit page with custom class -->
+                                    <a href="/edit/<%= post.id %>" class="btn btn-sm btn-custom btn-secondary mr-2">Edit</a>
+
+
+                                    <!-- Update form method to POST and action to delete route -->
+
+                                    <form action="/delete/<%= post.id %>" method="POST">
+                                        <button type="submit" class="btn btn-sm btn-custom btn-warning">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

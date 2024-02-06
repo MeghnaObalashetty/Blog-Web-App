@@ -1,0 +1,54 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    text-transform: uppercase;
+    /* Gradient background */
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    /* Adding background clip to clip the gradient to the text */
+    background-clip: text;
+    /* Setting text color to transparent to see the gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 50px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.viewposts {
+    color: black;
+    margin-top: 20px;
+}
+
+h4 {
+    color: #ffc107;
+}
+
+.btn-custom {
+    width: 80px;
+    height: 30px;
+}
+
+form {
+    margin-top: 0;
+}
+
+.titbold {
+    font-weight: bold;
+}
